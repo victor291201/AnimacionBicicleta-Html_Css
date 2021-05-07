@@ -1,0 +1,255 @@
+html,body{
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+.fondo{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background: #A3D6DB;
+	width: 100%;
+	height: 100%;
+	animation-name: fondo;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+}
+.sol{
+	background: #FFA500;
+	width: 100px;
+	height: 100px;
+	left: -110px;
+	position: absolute;
+	top: 30%;
+	border-radius: 100px;
+	box-shadow: 0px 0px 0px 10px rgba(225,140,0,0.5);
+	animation-name: sol;
+	animation-duration: 20s;
+	animation-iteration-count: infinite;
+}
+.nubes{
+	background-image: url(images/fondo1.png);
+	background-repeat: repeat-x;
+	position: absolute;
+	top: 7%;
+	left: 0px;
+	width: 100%;
+	height: 174px;
+	animation-name: nubes;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.ciudad{
+	background-image: url(images/ciudad.png);
+	background-repeat: repeat-x;
+	background-position: 0px 100%;
+	position: absolute;
+	top: 10%;
+	left: 0px;
+	width: 100%;
+	height: 90%;
+	animation-name: ciudad;
+	animation-duration: 15s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.bici{
+	width: 145px;
+	height: 80px;
+	position: absolute;
+	bottom: 9%;
+	left: 43%;
+	text-align: center;
+}
+.bici .marco{
+	background-image: url(images/marcobici.png);
+	width: 98px;
+	height: 56px;
+	display: inline-block;
+	bottom: 30px;
+	left: 25px;
+	position: relative;
+}
+.bici .llanta{
+	background-image: url(images/llanta.png);
+	width: 55px;
+	height: 56px;
+	display: inline-block;
+	position: absolute;
+	animation-name: llantas;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	transform: rotate(0deg);
+}
+}
+.bici .llanta .llan1{
+	top: 27px;
+	left: 0px;
+
+}
+.bici .llanta .llan2{
+	top: 30px;
+	right: 0px;
+}
+input[type=radio]{
+	position: relative;
+	z-index: 100;
+	display: none;
+}
+.button{
+	position: relative;
+	z-index: 100;
+	cursor: pointer;
+	display: inline-block;
+	padding: 12px 15px;
+	height: 24px;
+	width: 15px;
+	background-repeat: no-repeat;
+}
+.button.btn1{
+	background-image: url(images/play.png); 
+	background-repeat: no-repeat;
+	background-position: -50px;
+}
+.button.btn2{
+	background-image: url(images/play.png); 
+	background-repeat: no-repeat;
+	background-position: 0px;
+}
+.button.btn3{
+	background-image: url(images/play.png); 
+	background-repeat: no-repeat;
+	background-position: -100px;
+}
+#play:checked ~ .btn1{
+	background-color: #ffff;
+}
+#pause:checked ~ .btn2{
+	background-color: #ffff;
+}
+#stop:checked ~ .btn3{
+	background-color: #ffff;
+}
+
+@keyframes sol{
+	0%{ left: -110px; top: 30%; }
+	50%{ left: 50%; top: 5%; background: #FF4500; }
+	100%{ left: calc(100% + 10px); top: 30%; background: #bee2e6; box-shadow: 0px 0px 0px 10px rgba(73,92,0,0.5); }
+}
+
+@keyframes fondo{
+	50%{ background: #A3D6DB; }
+	100%{ background: #103D42; }
+}
+
+@keyframes nubes{
+	from{ background-position: 0 0; }
+	from{ background-position: -100% 0; }
+}
+
+@keyframes ciudad{
+	from{ background-position: 0 100%; }
+	from{ background-position: -70% 100%; }
+}
+
+@keyframes llantas{
+	from{ transform: rotate(0deg); }
+	to{ transform: rotate(360deg); }
+}
+
+#pause:checked ~ .sol{
+	animation-name: sol;
+	animation-play-state: paused;
+}
+#pause:checked ~ .fondo{
+	animation-name: fondo;
+	animation-play-state: paused;
+}
+#pause:checked ~ .nubes{
+	animation-name: nubes;
+	animation-play-state: paused;
+}
+#pause:checked ~ .ciudad{
+	animation-name: ciudad;
+	animation-play-state: paused;
+}
+#pause:checked ~ .bici .llanta{
+	animation-name: llantas;
+	animation-play-state: paused;
+}
+
+
+
+#play:checked ~ .sol{
+	animation-name: sol;
+	animation-play-state: running;
+}
+#play:checked ~ .fondo{
+	animation-name: fondo;
+	animation-play-state: running;
+}
+#play:checked ~ .nubes{
+	animation-name: nubes;
+	animation-play-state: running;
+}
+#play:checked ~ .ciudad{
+	animation-name: ciudad;
+	animation-play-state: running;
+}
+#play:checked ~ .bici .llanta{
+	animation-name: llantas;
+	animation-play-state: running;
+}
+
+
+
+#stop:checked ~ .sol{
+	animation-name: stopSol;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+#stop:checked ~ .fondo{
+	animation-name: stopFondo;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+#stop:checked ~ .nubes{
+	animation-name: stopNubes;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+#stop:checked ~ .ciudad{
+	animation-name: stopCiudad;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+#stop:checked ~ .bici .llanta{
+	animation-name: stopBici;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+@keyframes stopSol{
+	from{ left: -110px; }
+	to{ left: -110px; }
+}
+
+@keyframes stopFondo{
+	from{ background: #A3D6DB; }
+	to{ background: #A3D6DB; }
+}
+
+@keyframes stopNubes{
+	from{ background-position: 0 0; }
+	to{ background-position: 0 0; }
+}
+
+@keyframes stopCiudad{
+	from{ background-position: 0 100%; }
+	to{ background-position: 0 100%; }
+}
+
+@keyframes stopBici{
+	from{ transform: rotate(0deg); }
+	to{ transform: rotate(0deg); }
